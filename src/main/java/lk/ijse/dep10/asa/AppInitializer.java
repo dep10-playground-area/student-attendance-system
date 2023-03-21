@@ -76,7 +76,7 @@ public class AppInitializer extends Application {
             StringBuilder dbScriptBuilder = new StringBuilder();
 
             while ((line = br.readLine()) != null) {
-                dbScriptBuilder.append(line).append("\n");
+                dbScriptBuilder.append(line);
             }
             System.out.println(dbScriptBuilder);
             return dbScriptBuilder.toString();
