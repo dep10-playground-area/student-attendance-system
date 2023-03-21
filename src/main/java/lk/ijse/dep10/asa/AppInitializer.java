@@ -1,6 +1,8 @@
 package lk.ijse.dep10.asa;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lk.ijse.dep10.asa.db.DBConnection;
 
@@ -38,9 +40,15 @@ public class AppInitializer extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         generateSchemaIfNotExist();
-
+        primaryStage.setScene(new Scene(
+                new FXMLLoader(this.getClass().getResource("/view/MainScene.fxml")).load()
+        ));
+        primaryStage.setTitle("Student Attendance System");
+        primaryStage.centerOnScreen();
+        primaryStage.setMaximized(true);
+        primaryStage.show();
 
     }
 

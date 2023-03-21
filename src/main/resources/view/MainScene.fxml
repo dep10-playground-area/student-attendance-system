@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="580.0" prefWidth="978.0" stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.asa.controller.MainSceneController">
+   <children>
+      <Button fx:id="btnNewStudent" layoutX="22.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnNewStudentOnAction" prefHeight="39.0" prefWidth="163.0" styleClass="btn-new" stylesheets="@../styles/Style.css" text="+ NEW STUDENT" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <VBox layoutX="33.0" layoutY="91.0" prefHeight="424.0" prefWidth="303.0" spacing="10.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="197.0" text="Student ID">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtId" alignment="CENTER" minHeight="30.0" promptText="Generated ID">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="197.0" text="Student Name" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtName" alignment="CENTER" layoutX="10.0" layoutY="46.0" minHeight="30.0" promptText="Enter name">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="86.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="160.0" text="Picture">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <HBox spacing="10.0">
+               <children>
+                  <AnchorPane style="-fx-border-color: greay: border;">
+                     <children>
+                        <ImageView fx:id="imgPicture" fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/no-user.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="20.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="btnBrowse" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="110.0" mnemonicParsing="false" onAction="#btnBrowseOnAction" prefHeight="32.0" prefWidth="110.0" text="Browse" VBox.vgrow="ALWAYS" />
+                        <Button fx:id="btnClear" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="110.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="110.0" text="Clear" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="btnSave" defaultButton="true" minHeight="32.0" minWidth="110.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="110.0" text="Save" />
+                  <Button fx:id="btnDelete" layoutX="10.0" layoutY="10.0" minHeight="32.0" minWidth="110.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="110.0" text="Delete" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </VBox>
+      <Separator layoutX="387.0" layoutY="59.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="375.0" AnchorPane.topAnchor="0.0" />
+      <TableView fx:id="tblStudent" layoutX="389.0" layoutY="20.0" onKeyPressed="#tblStudentOnKeyRelease" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
+        <columns>
+          <TableColumn prefWidth="184.0" text="Picture" />
+          <TableColumn prefWidth="124.0" text="ID" />
+            <TableColumn prefWidth="258.0" text="Name" />
+        </columns>
+      </TableView>
+      <HBox layoutX="410.0" layoutY="14.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <TextField fx:id="txtSearch" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="32.0" promptText="Search anything here" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
