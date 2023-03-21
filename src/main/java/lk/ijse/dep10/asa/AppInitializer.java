@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -54,12 +53,13 @@ public class AppInitializer extends Application {
             while (rst.next()) {
                 tableNameSet.add(rst.getString(1));
             }
-            boolean tableExist = tableNameSet.containsAll(Set.of("Attendance", "Picture", "Student", "User"));
+            boolean tableExist = tableNameSet.
+                    containsAll(Set.of("Attendance", "Picture", "Student", "User"));
             System.out.println(tableExist);
 
             if (!tableExist) {
                 System.out.println("Missing data tables are generating");
-                stm.execute(readDBScript());
+                stm.execute(readSchemaScript());
             }
 
             System.out.println(tableNameSet);
@@ -69,7 +69,7 @@ public class AppInitializer extends Application {
 
     }
 
-    private String readDBScript() {
+    private String readSchemaScript() {
         InputStream is = getClass().getResourceAsStream("/schema.sql");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))){
             String line;
